@@ -5,9 +5,7 @@ Duktape-nim is a [Nim](https://nim-lang.org/) wrapper for the [Duktape](http://d
 Use [Nimble](https://github.com/nim-lang/nimble):
 
 ```
-> nimble install duktape
-
-> git clone https://github.com/manguluka/duktape-nim
+> git clone https://github.com/Daedalus11069/duktape-nim
 > cd duktape-nim
 > nimble install -y
 ```
@@ -49,7 +47,7 @@ var println: DTCFunction = (proc (ctx: DTContext): cint{.stdcall.} =
 # Create duktape context
 var ctx = duk_create_heap_default()
 
-# Bind proc to the context and global "println" variable 
+# Bind proc to the context and global "println" variable
 var err = ctx.duk_push_c_function( println, cast[cint](-1))
 var r = ctx.duk_put_global_string("println")
 
@@ -61,5 +59,5 @@ ctx.duk_destroy_heap();
 ```
 
 ## Credits
-Duktape-nim depends on [nimgen](https://github.com/genotrance/nimgen) and [c2nim](https://github.com/nim-lang/c2nim/).
 
+Duktape-nim depends on [nimgen](https://github.com/genotrance/nimgen) and [c2nim](https://github.com/nim-lang/c2nim/).
