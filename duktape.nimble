@@ -14,6 +14,7 @@ installDirs = @["duktape"]
 
 # Dependencies
 import distros
+from os import existsDir
 
 var cmd = ""
 if detectOs(Windows):
