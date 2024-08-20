@@ -24,7 +24,7 @@ task setup, "Download and generate":
     exec cmd & "nimgen duktape.cfg"
 
 before install:
-    if not existsDir("duktape")
+    if not existsDir("duktape"):
         setupTask()
 
 task test, "Test duktape":
