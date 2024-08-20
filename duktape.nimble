@@ -13,8 +13,7 @@ skipDirs = @["tests","src"]
 installDirs = @["duktape"]
 
 # Dependencies
-import distros
-from os import existsDir
+import distros, os
 
 var cmd = ""
 if detectOs(Windows):
@@ -25,7 +24,7 @@ task setup, "Download and generate":
     exec cmd & "nimgen duktape.cfg"
 
 before install:
-    if not existsDir("duktape"):
+    if not dirExists("duktape"):
         setupTask()
 
 task test, "Test duktape":
