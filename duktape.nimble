@@ -13,7 +13,7 @@ skipDirs = @["tests","src"]
 installDirs = @["duktape"]
 
 # Dependencies
-import distros
+import distros, os
 
 var cmd = ""
 if detectOs(Windows):
@@ -24,7 +24,8 @@ task setup, "Download and generate":
     exec cmd & "nimgen duktape.cfg"
 
 before install:
-    setupTask()
+    if not dirExists("duktape/js"):
+        setupTask()
 
 task test, "Test duktape":
     exec "nim c -r tests/basic_eval.nim"
